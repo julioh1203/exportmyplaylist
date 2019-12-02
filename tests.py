@@ -9,6 +9,8 @@ class TestExportPlaylist(unittest.TestCase):
         self.playlist_id = '4uVvklTsfJ9SBXJdxqgib6'
         self.export = ExportPlaylist()
 
-    def test_export_spotify_playlist(self):        
-        teste = self.export.export_spotify_playlist(self.playlist_id)        
-        self.assertEqual(teste, 1)
+    def test_export_spotify_playlist(self):
+        teste = self.export.export_spotify_playlist(self.playlist_id)
+        self.assertEqual(teste, 2)
+
+#spotify:playlist:0WAjP99fKlugTYbBkSWVOg
