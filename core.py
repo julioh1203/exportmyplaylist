@@ -24,7 +24,7 @@ class ExportPlaylist:
         self.token = util.prompt_for_user_token(self.username, scope, client_id=CLIENT_ID, client_secret=CLIENT_SECRET,
                                                 redirect_uri=redirect_uri)
 
-    def write_tracks_to_dict(self, tracks, playlist_to_export):        
+    def write_tracks_to_dict(self, tracks, playlist_to_export):
         for item in tracks['items']:
             track = item['track']
             playlist_to_export.append(
