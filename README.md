@@ -27,7 +27,14 @@ Python3
 É preciso criar um arquivo .env com o seguinte conteúdo:
 CLIENT_ID=<ID de desenvolvedor do Spotify>
 CLIENT_SECRET=<Senha de desenvolvedor do Spotify>
+  
+Ambas informações devem ser inseridas sem aspas.
 
+O ID e senha do desenvolvedor podem ser obtidos em: https://developer.spotify.com/dashboard/
+
+# Como usar
+ExportPlaylist(username, playlist_id)
+Informar o ID do usuário dono da playlist e o ID da playlist que se deseja exportar.
 
 
 
