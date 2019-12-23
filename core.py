@@ -9,17 +9,17 @@ import csv
 
 class ExportPlaylist:
 
-    def __init__(self, username):
+    def __init__(self, username, playlist_id):
         CLIENT_ID = config('CLIENT_ID')
         CLIENT_SECRET = config('CLIENT_SECRET')
         redirect_uri = 'https://www.google.com.br'
         scope = 'user-library-read playlist-read-private'
         self.username = username
+        self.playlist_id = playlist_id
 
         client_credentials_manager = SpotifyClientCredentials(
             client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
-        spotify = spotipy.Spotify(
-            client_credentials_manager=client_credentials_manager)
+        spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
         self.token = util.prompt_for_user_token(self.username, scope, client_id=CLIENT_ID, client_secret=CLIENT_SECRET,
                                                 redirect_uri=redirect_uri)
@@ -41,11 +41,11 @@ class ExportPlaylist:
         csv_file.close()
         return csv_filename
 
-    def export_spotify_playlist(self, playlist_id):
+    def export_spotify_playlist(self):
         playlist_to_export = list()
         spotify = spotipy.Spotify(auth=self.token)
         playlist = spotify.user_playlist(
-            self.username, playlist_id=playlist_id, fields='name,tracks,artist,next')
+            self.username, playlist_id=self.playlist_id, fields='name,tracks,artist,next')
         csv_filename = '{}.csv'.format(playlist['name'])
 
         # write the first 100 tracks

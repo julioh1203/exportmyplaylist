@@ -9,7 +9,7 @@ class TestExportPlaylist(unittest.TestCase):
     def setUp(self):
         self.playlist_id = '4uVvklTsfJ9SBXJdxqgib6'
         self.username = '12186735364'
-        self.export = ExportPlaylist(self.username)
+        self.export = ExportPlaylist(self.username, self.playlist_id)
         self.playlist_to_export = [{'musica': 'Howlin’ For You', 'artista': 'The Black Keys'}, {
             'musica': 'Gold on the Ceiling', 'artista': 'The Black Keys'}]
         self.csv_filename = 'playlist_teste.csv'
@@ -22,7 +22,7 @@ class TestExportPlaylist(unittest.TestCase):
         self.playlist_test = []
 
     def test_export_spotify_playlist(self):
-        teste = self.export.export_spotify_playlist(self.playlist_id)
+        teste = self.export.export_spotify_playlist()
         self.assertEqual(teste, 1)
 
     def test_create_csv(self):
@@ -35,6 +35,3 @@ class TestExportPlaylist(unittest.TestCase):
         self.assertEqual(
             [{'musica': 'Safe And Sound', 'artista': 'Capital Cities'}], teste)
 
-# spotify:playlist:0WAjP99fKlugTYbBkSWVOg
-# spotify:playlist:1yMK5IHUjTouRk74tiWmSa(MAN AT WORK)
-# spotify:playlist:4uVvklTsfJ9SBXJdxqgib6 (teste)
