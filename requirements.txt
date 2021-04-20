@@ -6,7 +6,7 @@ importlib-metadata==0.23
 more-itertools==8.0.0
 packaging==19.2
 pluggy==0.13.1
-py==1.8.0
+py==1.10.0
 pyparsing==2.4.5
 python-decouple==3.3
 requests==2.22.0
